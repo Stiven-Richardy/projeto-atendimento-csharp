@@ -12,23 +12,9 @@ namespace projeto_atendimento
 {
     public partial class Form1 : Form
     {
-        Senhas senhas = new Senhas();
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void btnGerar_Click(object sender, EventArgs e)
-        {
-            senhas.gerar();
-        }
-
-        private void btnListarSenhas_Click(object sender, EventArgs e)
-        {
-            foreach (Senha s in senhas.FilaSenhas)
-            {
-                lbGeracao.Items.Add(s.DataGerac);
-            }
         }
     }
 }
