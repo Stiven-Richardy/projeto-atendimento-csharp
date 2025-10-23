@@ -24,7 +24,7 @@ namespace projeto_atendimento
         private void btnGerar_Click(object sender, EventArgs e)
         {
             senhas.gerar();
-            MessageBox.Show($"Senha gerada com sucesso. Id: {senhas.FilaSenhas.Count()}",
+            MessageBox.Show($"Senha gerada com sucesso. Id: {senhas.ProximoAtendimento - 1}",
                 "Senhas",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
@@ -34,9 +34,15 @@ namespace projeto_atendimento
         private void btnListarSenhas_Click(object sender, EventArgs e)
         {
             lbGeracao.Items.Clear();
-            foreach(Senha s in senhas.FilaSenhas)
+            if (senhas.FilaSenhas.Count == 0)
             {
-                lbGeracao.Items.Add(s.dadosParciais());
+                lbGeracao.Items.Add("Nenhuma senha gerada.");
+            } else
+            {
+                foreach (Senha s in senhas.FilaSenhas)
+                {
+                    lbGeracao.Items.Add(s.dadosParciais());
+                }
             }
         }
 
@@ -45,11 +51,91 @@ namespace projeto_atendimento
             Guiche adicionarGuiche = new Guiche(id);
             guiches.adicionar(adicionarGuiche);
             lblQtdeGuiche.Text = guiches.ListaGuiches.Count().ToString();
-            MessageBox.Show($"Guichê adicionado com sucesso. Id: {guiches.ListaGuiches.Count()}",
+            MessageBox.Show($"Guichê adicionado com sucesso. Id: {id}",
                 "Guichês",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             id++;
+        }
+
+        private void btnChamar_Click(object sender, EventArgs e)
+        {
+            int guicheId;
+            if (!int.TryParse(nudGuiche.Text, out guicheId))
+            {
+                MessageBox.Show("Número do guichê inválido.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            } 
+            else
+            {
+                Guiche guicheSelecionado = guiches.ListaGuiches.FirstOrDefault(g => g.Id == guicheId);
+                if (guicheSelecionado == null)
+                {
+                    MessageBox.Show($"Guichê {guicheId} não existe.",
+                        "Guichês",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (senhas.FilaSenhas.Count() > 0)
+                    {
+                        Senha proximaSenha = senhas.FilaSenhas.Peek();
+                        guicheSelecionado.chamar(senhas.FilaSenhas);
+                        MessageBox.Show($"Senha {proximaSenha.Id} chamada no Guichê {guicheSelecionado.Id}.",
+                            "Senhas",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Não há senhas na fila para chamar.",
+                            "Senhas",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
+        private void btnListarAtendimentos_Click(object sender, EventArgs e)
+        {
+            lbAtendimentos.Items.Clear();
+            int guicheId;
+            if (!int.TryParse(nudGuiche.Text, out guicheId))
+            {
+                MessageBox.Show("Número do guichê inválido.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            else
+            {
+                Guiche guicheSelecionado = guiches.ListaGuiches.FirstOrDefault(g => g.Id == guicheId);
+                if (guicheSelecionado == null)
+                {
+                    MessageBox.Show($"Guichê {guicheId} não existe.",
+                        "Guichês",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (guicheSelecionado.Atendimentos.Count() == 0)
+                    {
+                        lbAtendimentos.Items.Add("Nenhum atendimento realizado para este guichê.");
+                    } 
+                    else
+                    {
+                        foreach (Senha s in guicheSelecionado.Atendimentos)
+                        {
+                            lbAtendimentos.Items.Add(s.dadosCompletos());
+                        }
+                    }
+                }
+            }
         }
     }
 }
