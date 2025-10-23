@@ -17,13 +17,14 @@ namespace projeto_atendimento
 
         public Senhas()
         {
-            proximoAtendimento += 1;
+            proximoAtendimento = 1;
             FilaSenhas = new Queue<Senha>();
         }
 
         public void gerar()
         {
             FilaSenhas.Enqueue(new Senha(proximoAtendimento));
+            proximoAtendimento += 1;
         }
     }
 }
