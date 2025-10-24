@@ -29,7 +29,19 @@ namespace projeto_atendimento
 
         public bool chamar(Queue<Senha> filasSenhas) 
         {
-            return true;
+            bool chamar;
+            if (filasSenhas.Count() > 0)
+            {
+                filasSenhas.First().DataAtend = DateTime.Now;
+                Atendimentos.Enqueue(filasSenhas.First());
+                filasSenhas.Dequeue();
+                chamar = true;
+            }
+            else
+            {
+                chamar = false;
+            }
+            return chamar;
         }
     }
 }

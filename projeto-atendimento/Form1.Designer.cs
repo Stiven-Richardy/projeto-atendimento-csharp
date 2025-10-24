@@ -36,8 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblQtdeGuiche = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnChamar = new System.Windows.Forms.Button();
+            this.btnListarAtendimentos = new System.Windows.Forms.Button();
             this.nudGuiche = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudGuiche)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +79,7 @@
             this.lbAtendimentos.FormattingEnabled = true;
             this.lbAtendimentos.Location = new System.Drawing.Point(438, 41);
             this.lbAtendimentos.Name = "lbAtendimentos";
-            this.lbAtendimentos.Size = new System.Drawing.Size(324, 186);
+            this.lbAtendimentos.Size = new System.Drawing.Size(356, 186);
             this.lbAtendimentos.TabIndex = 3;
             // 
             // btnAdicionar
@@ -123,32 +123,35 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Guiche:";
             // 
-            // button4
+            // btnChamar
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(594, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(168, 23);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Chamar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnChamar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnChamar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChamar.Location = new System.Drawing.Point(609, 12);
+            this.btnChamar.Name = "btnChamar";
+            this.btnChamar.Size = new System.Drawing.Size(185, 23);
+            this.btnChamar.TabIndex = 9;
+            this.btnChamar.Text = "Chamar";
+            this.btnChamar.UseVisualStyleBackColor = true;
+            this.btnChamar.Click += new System.EventHandler(this.btnChamar_Click);
             // 
-            // button5
+            // btnListarAtendimentos
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button5.Location = new System.Drawing.Point(438, 237);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(324, 23);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnListarAtendimentos.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnListarAtendimentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarAtendimentos.Location = new System.Drawing.Point(438, 237);
+            this.btnListarAtendimentos.Name = "btnListarAtendimentos";
+            this.btnListarAtendimentos.Size = new System.Drawing.Size(356, 23);
+            this.btnListarAtendimentos.TabIndex = 10;
+            this.btnListarAtendimentos.Text = "Listar Atendimentos";
+            this.btnListarAtendimentos.UseVisualStyleBackColor = true;
+            this.btnListarAtendimentos.Click += new System.EventHandler(this.btnListarAtendimentos_Click);
             // 
             // nudGuiche
             // 
             this.nudGuiche.Location = new System.Drawing.Point(488, 15);
             this.nudGuiche.Name = "nudGuiche";
-            this.nudGuiche.Size = new System.Drawing.Size(100, 20);
+            this.nudGuiche.Size = new System.Drawing.Size(115, 20);
             this.nudGuiche.TabIndex = 11;
             // 
             // Form1
@@ -156,10 +159,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(777, 272);
+            this.ClientSize = new System.Drawing.Size(806, 272);
             this.Controls.Add(this.nudGuiche);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnListarAtendimentos);
+            this.Controls.Add(this.btnChamar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblQtdeGuiche);
             this.Controls.Add(this.label1);
@@ -186,8 +189,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblQtdeGuiche;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnChamar;
+        private System.Windows.Forms.Button btnListarAtendimentos;
         private System.Windows.Forms.NumericUpDown nudGuiche;
     }
 }

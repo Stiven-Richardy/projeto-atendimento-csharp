@@ -20,16 +20,17 @@ namespace projeto_atendimento
         { 
             Id = id;
             DataGerac = DateTime.Now;
+            DataAtend = null;
         }
 
         public string dadosParciais()
         {
-            return $"Id: {Id} - Gerado: {DataGerac}";
+            return $"{Id} - {DataGerac.ToString("dd/MM/yyyy")} - {DataGerac.ToString("HH:mm:ss")}";
         }
 
         public string dadosCompletos()
         {
-            return $"Id: {Id} - Gerado: {DataGerac} - Atendido: {DataAtend}";
+            return $"{Id} - {DataGerac.ToString("dd/MM/yyyy")} - {DataGerac.ToString("HH:mm:ss")} - {DataAtend.Value.ToString("dd/MM/yyyy")} - {DataAtend.Value.ToString("HH:mm:ss")}";
         }
     }
 }
