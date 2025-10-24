@@ -32,13 +32,14 @@
             this.btnGerar = new System.Windows.Forms.Button();
             this.btnListarSenhas = new System.Windows.Forms.Button();
             this.lbAtendimentos = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblQtdeGuiche = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.nudGuiche = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGuiche)).BeginInit();
             this.SuspendLayout();
             // 
             // lbGeracao
@@ -59,6 +60,7 @@
             this.btnGerar.TabIndex = 1;
             this.btnGerar.Text = "Gerar";
             this.btnGerar.UseVisualStyleBackColor = true;
+            this.btnGerar.Click += new System.EventHandler(this.btnGerar_Click);
             // 
             // btnListarSenhas
             // 
@@ -70,6 +72,7 @@
             this.btnListarSenhas.TabIndex = 2;
             this.btnListarSenhas.Text = "Listar Senhas";
             this.btnListarSenhas.UseVisualStyleBackColor = true;
+            this.btnListarSenhas.Click += new System.EventHandler(this.btnListarSenhas_Click);
             // 
             // lbAtendimentos
             // 
@@ -79,16 +82,16 @@
             this.lbAtendimentos.Size = new System.Drawing.Size(324, 186);
             this.lbAtendimentos.TabIndex = 3;
             // 
-            // button3
+            // btnAdicionar
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(225, 204);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(207, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Adicionar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionar.Location = new System.Drawing.Point(225, 204);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(207, 23);
+            this.btnAdicionar.TabIndex = 4;
+            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -100,15 +103,15 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Qtde Guichês";
             // 
-            // label2
+            // lblQtdeGuiche
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 73);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "0";
+            this.lblQtdeGuiche.AutoSize = true;
+            this.lblQtdeGuiche.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdeGuiche.Location = new System.Drawing.Point(290, 94);
+            this.lblQtdeGuiche.Name = "lblQtdeGuiche";
+            this.lblQtdeGuiche.Size = new System.Drawing.Size(69, 73);
+            this.lblQtdeGuiche.TabIndex = 6;
+            this.lblQtdeGuiche.Text = "0";
             // 
             // label3
             // 
@@ -118,13 +121,6 @@
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Guiche:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(488, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 8;
             // 
             // button4
             // 
@@ -147,25 +143,33 @@
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // nudGuiche
+            // 
+            this.nudGuiche.Location = new System.Drawing.Point(488, 15);
+            this.nudGuiche.Name = "nudGuiche";
+            this.nudGuiche.Size = new System.Drawing.Size(100, 20);
+            this.nudGuiche.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(777, 272);
+            this.Controls.Add(this.nudGuiche);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblQtdeGuiche);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.lbAtendimentos);
             this.Controls.Add(this.btnListarSenhas);
             this.Controls.Add(this.btnGerar);
             this.Controls.Add(this.lbGeracao);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.nudGuiche)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,13 +181,13 @@
         private System.Windows.Forms.Button btnGerar;
         private System.Windows.Forms.Button btnListarSenhas;
         private System.Windows.Forms.ListBox lbAtendimentos;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblQtdeGuiche;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.NumericUpDown nudGuiche;
     }
 }
 
