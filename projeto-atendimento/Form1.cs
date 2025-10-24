@@ -12,7 +12,10 @@ namespace projeto_atendimento
 {
     public partial class Form1 : Form
     {
+        int id = 1;
         Senhas senhas = new Senhas();
+        Guiches guiches = new Guiches();
+
         public Form1()
         {
             InitializeComponent();
@@ -35,6 +38,18 @@ namespace projeto_atendimento
             {
                 lbGeracao.Items.Add(s.dadosParciais());
             }
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            Guiche adicionarGuiche = new Guiche(id);
+            guiches.adicionar(adicionarGuiche);
+            lblQtdeGuiche.Text = guiches.ListaGuiches.Count().ToString();
+            MessageBox.Show($"Guichê adicionado com sucesso. Id: {guiches.ListaGuiches.Count()}",
+                "Guichês",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+            id++;
         }
     }
 }
