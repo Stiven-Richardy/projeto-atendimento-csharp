@@ -20,7 +20,21 @@ namespace projeto_atendimento
         {
             InitializeComponent();
         }
-
+        void atualizaLista()
+        {
+            lbGeracao.Items.Clear();
+            if (senhas.FilaSenhas.Count == 0)
+            {
+                lbGeracao.Items.Add("Nenhuma senha aguarda atendimento.");
+            }
+            else
+            {
+                foreach (Senha s in senhas.FilaSenhas)
+                {
+                    lbGeracao.Items.Add(s.dadosParciais());
+                }
+            }
+        }
         private void btnGerar_Click(object sender, EventArgs e)
         {
             senhas.gerar();
@@ -33,17 +47,7 @@ namespace projeto_atendimento
 
         private void btnListarSenhas_Click(object sender, EventArgs e)
         {
-            lbGeracao.Items.Clear();
-            if (senhas.FilaSenhas.Count == 0)
-            {
-                lbGeracao.Items.Add("Nenhuma senha gerada.");
-            } else
-            {
-                foreach (Senha s in senhas.FilaSenhas)
-                {
-                    lbGeracao.Items.Add(s.dadosParciais());
-                }
-            }
+            atualizaLista();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -88,6 +92,7 @@ namespace projeto_atendimento
                             "Senhas",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
+                        atualizaLista();
                     }
                     else
                     {
